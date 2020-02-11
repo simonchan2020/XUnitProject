@@ -33,5 +33,18 @@ namespace xUnitTestProject
             Assert.False(DocumentProcessing.IsBalanced(file1), "Test failed. This not well formed document should returns false");
         }
 
+        [Theory]
+        [InlineData("<<Good Document>>")]
+        [InlineData("[[Well formed!]]")]
+        [InlineData("This{is} a good document <Test>")]
+        public void TheoryUseCaseTests(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("InlineData cannot be null", nameof(value));
+            }
+            Assert.True(DocumentProcessing.IsBalanced(value));
+        }
+
     }
 }
