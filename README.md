@@ -1,4 +1,4 @@
-# XUnitProjct
+# XUnitProject
 
 XUnit Framework Testing in C#
 
